@@ -58,6 +58,10 @@ A autenticação é gerenciada pela tabela `tb_usuario`, que armazena login, sen
   - **Login**: `admin`
   - **Senha**: `password123`
 
+   **Exemplo de requisição:**
+   ![Exemplo de requisição ](./img/exemploRequisicao.png)
+
+
 ## Bibliotecas Utilizadas
 
 1. **TypeScript**:
