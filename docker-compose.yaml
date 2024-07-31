@@ -1,0 +1,40 @@
+version: '3.8'
+
+networks:
+  dev:
+    driver: bridge
+
+services:
+  inhouse_db:
+      image: postgres:13
+      container_name: inhouse_db
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=root
+        - POSTGRES_DB=inHouse
+      ports:
+        - '5432:5432'
+      volumes:
+        - postgres_data:/var/lib/postgresql/data
+      networks:
+        - dev
+
+  inhouse_aplicacao:
+    build: .
+    container_name: inhouse_aplicacao
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=inHouse_db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=root
+      - DB_NAME=inHouse
+    depends_on:
+      - inhouse_db
+    networks:
+      - dev
+
+volumes:
+  postgres_data:

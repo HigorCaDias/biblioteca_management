@@ -1,0 +1,11 @@
+Dependencias de incialização do projeto
+
+npm init -y
+npm install express sequelize pg pg-hstore dotenv
+npm install typescript ts-node-dev @types/express @types/node
+npx tsc --init
+npm install express-validator
+npm install jsonwebtoken bcryptjs
+npm install joi
+npm install --save-dev nodemon
+npm install @types/jsonwebtoken @types/bcryptjs --save-dev
